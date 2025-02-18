@@ -14,7 +14,7 @@ Este proyecto es una plataforma educativa, un Chatbot de discord, que proporcion
 
 # Tecnologías
 - Discord
-- Discord developer (*para crear la api*)
+- Discord developer (*para crear la api* )
 - Python 3.12.1
 - Visión por ordenador (tentativo)
 - Tensorflow (tentativo)
