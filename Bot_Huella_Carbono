@@ -1,0 +1,149 @@
+import discord
+from discord.ext import commands
+import random
+
+intens = discord.Intents.default()
+intens.message_content = True
+
+bot=commands.Bot(command_prefix = "*", intents = intens)
+
+@bot.event
+async def on_ready():
+    print(f"se inicio el bot{bot.user}")
+
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f"Hola soy un bot {bot.user}, el prefijo para los comandos es *")
+    await ctx.send("Por favor, si quieres calcular tu huella de carbono, pon primero la cantidad de consumo y luego el factor de emisión en función del tipo de combustible o gas empleado, ten claro que esta calculadora es de alcance 1 y 2")
+
+@bot.command()
+async def calcular(ctx,consumo=0,factor=0):
+    if consumo >0 and factor >0:
+        resultado = consumo * factor
+        await ctx.send(f"La huella de carbono de tu producto es: {resultado}")
+    else:
+        await ctx.send("Operacion no reconocida")
+
+@bot.command()
+async def consejo_huella(ctx):
+    consejos = [
+        "Utiliza bombillas de bajo consumo",
+        "Desconecta los aparatos electrónicos cuando no los uses",
+        "Usa menos el coche y más la bicicleta",
+        "Come menos carne",
+        "Compra productos locales",
+        "Compra productos de temporada",
+        "Trata de usar el transporte público",
+        "Trata de usar menos el aire acondicionado",
+        "Trata de usar menos el avion",
+        "Utiliza coches eléctricos",
+        "Utiliza energías renovables",
+    ]
+    consejo = random.choice(consejos)
+    await ctx.send(consejo)
+
+@bot.command()
+async def consejo(ctx):
+    CCC = [
+        "Recicla de manera correcta",
+        "Reutiliza los productos para darles una segunda vida",
+        "Reduce el consumo de productos de un solo uso",
+        "Utiliza productos biodegradables",
+        "Utiliza productos de limpieza ecológicos",
+        "Utiliza productos de higiene personal ecológicos",
+        "No tires basura en la calle",
+        "No tires basura en la naturaleza",
+        "No tires basura en el mar",
+        "No contamines el agua",
+        "Evita el uso de pesticidas",
+    ]
+    consejo_2 = random.choice(CCC)
+    await ctx.send(consejo_2)
+
+@bot.command()
+async def causas(ctx):
+    Causas = [
+        "La generación de energía",
+        "La deforestación",
+        "Productos de fabricación",
+        "El transporte privado sin control de emisiones",
+        "La agricultura intensiva",
+        "La industrialización",
+        "La ganadería intensiva",
+        "La energía en los edificios",
+        "La gestión de residuos",
+        "El uso de agua",
+        "La contaminación del aire",
+        "Un consumo excesivo",
+        "La sobreexplotación de los recursos naturales",
+        "La urbanización",
+        "La emision descontrolada de gases de efecto invernadero",
+        "La emisión de gases contaminantes",
+        "La emisión de gases tóxicos",
+        "El uso de plásticos de un solo uso",
+        "El uso de productos químicos",
+        "La contaminación del suelo",
+        "El uso de vehiculos viejos, que liberan gases de efecto invernadero de manera excesiva",
+        "El uso de productos no biodegradables",
+        "La falta de conciencia ambiental",
+        "La falta de educación ambiental",
+        "La falta de políticas ambientales",
+
+    ]
+    causas = random.choice(Causas)
+    await ctx.send(causas)
+
+@bot.command()
+async def gases(ctx):
+    gases = [
+        "Dióxido de carbono (CO2)",
+        "Metano (CH4)",
+        "Óxidos de nitrógeno (NOx)",
+        "Óxidos de azufre (SOx)",
+        "Hidrofluorocarbonos (HFC)",
+        "Perfluorocarbonos (PFC)",
+        "Hexafluoruro de azufre (SF6)",
+        "Trifluoruro de nitrógeno (NF3)",
+        "Clorofluorocarbonos (CFC)",
+        "Hidroclorofluorocarbonos (HCFC)",
+        "Amoníaco (NH3)",
+        "Óxido nitroso (N2O)",
+        "Óxido de azufre (SO2)",
+        "Óxido de nitrógeno (NO)",
+        "Monóxido de carbono (CO)",
+        "Vapores orgánicos",
+        "Partículas en suspensión",
+        "Plomo (Pb)",
+        "Mercurio (Hg)",
+        "Cadmio (Cd)",
+        "Arsénico (As)",
+        "Benceno",
+        "Dioxinas",
+        "Furanos",
+        "Hidrocarburos aromáticos policíclicos (HAP)",
+        "Hidrocarburos aromáticos",
+        "Hidrocarburos alifáticos",
+        "Hidrocarburos halogenados",
+        "Hidrocarburos clorados",
+        "Hidrocarburos fluorados",
+        "Hidrocarburos bromados",
+        "Hidrocarburos yodados",
+        "Hidrocarburos sulfonados",
+        "Hidrocarburos nitrados",
+        "Hidrocarburos nitrosados",
+        "Hidrocarburos fosforados",
+        "Hidrocarburos silícicos",
+        "Hidrocarburos germanicos",
+        "Hidrocarburos estanicos",
+        "Hidrocarburos plúmbicos",
+        "Hidrocarburos bismúticos",
+        "Hidrocarburos telúricos",
+    ]
+    gas = random.choice(gases)
+    await ctx.send(gas)
+
+@bot.command()
+async def comandos(ctx):
+    await ctx.send("Estos son los comandos que puedes utilizar: \n *hello \n *consejo_huella \n *consejo \n *calcular \n *causas \n *gases")
+
+bot.run("TOKEN")
