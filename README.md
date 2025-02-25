@@ -21,3 +21,7 @@ Este proyecto es una plataforma educativa, un Chatbot de discord, que proporcion
 - Keras (tentativo)
 - Nummpy (tentativo)
 - Google teachable machine o Yolov3 (tentativo)
+
+# Las bibliotecas que voy a utilizar:
+- Discord
+- Random
